@@ -1,5 +1,6 @@
-# training Exercise for APOL1
-## context 
+# Training exercise for APOL1
+
+## General context 
 The APOL1 (Apolipoprotein L1) gene, located on chromosome 22 (22q12.3), encodes a protein involved in innate immunity and protection against certain Trypanosoma parasites that cause African sleeping sickness. However, two common coding variants — known as the G1 and G2 risk alleles — have been strongly associated with increased susceptibility to kidney diseases, particularly in individuals of African ancestry. The G1 variant consists of two missense mutations (rs73885319 [S342G] and rs60910145 [I384M]), while the G2 variant involves a 6–base pair deletion (rs71785313) that removes two amino acids (N388 and Y389). Individuals carrying two risk alleles (G1/G1, G2/G2, or G1/G2) are at significantly higher risk for developing conditions such as focal segmental glomerulosclerosis (FSGS), hypertension-attributed end-stage kidney disease (ESKD), and HIV-associated nephropathy (HIVAN). These variants illustrate a striking example of evolutionary trade-off, where protection against infection has come at the cost of increased kidney disease risk.
 
 The frequency of APOL1 high-risk alleles varies markedly across populations, reflecting their evolutionary history and selective pressures. The G1 and G2 variants are found almost exclusively in individuals of recent African ancestry, with combined risk allele frequencies ranging from 10% to over 40% in West African populations, where exposure to Trypanosoma brucei was historically common. In contrast, these variants are rare or absent in non-African populations, including Europeans, Asians, and Indigenous American groups. Within Africa, the distribution is heterogeneous — higher in West and Central Africa (e.g., Yoruba, Igbo) and lower in East and Southern Africa, mirroring the geographic spread of T. brucei gambiense and T. b. rhodesiense. This population variability highlights the strong balancing selection that maintained APOL1 risk alleles in regions where they conferred protection against trypanosome infection, despite their detrimental effects on kidney function.
@@ -154,13 +155,12 @@ R is not mandatory. You can use other tools (e.g., `bcftools`, `awk`, or `plink`
 
 #### 🧾 Expected Output
 
-```text
-ID        rs73885319_g1   rs73885319_g2   rs60910145_g1   rs60910145_g2   rs71785313_g1   rs71785313_g2   rs73885316_g1   rs73885316_g2
-HG00096   G               A               G               G               C               -               G               G
-HG00097   A               A               G               A               -               -               G               A
-HG00099   G               G               G               G               C               C               G               G
+| ID       | rs73885319_g1 | rs73885319_g2 | rs60910145_g1 | rs60910145_g2 | rs71785313_g1 | rs71785313_g2 | rs73885316_g1 | rs73885316_g2 |
+|-----------|---------------|---------------|---------------|---------------|---------------|---------------|---------------|---------------|
+| HG00096   | G             | A             | G             | G             | C             | -             | G             | G             |
+| HG00097   | A             | A             | G             | A             | -             | -             | G             | A             |
+| HG00099   | G             | G             | G             | G             | C             | C             | G             | G             |
 
-```
 
 ## Part.2 Excercice : Built risk allele 
 
@@ -215,7 +215,7 @@ the resulting summary table could look like this:
 
 ---
 
-## 📊 Frequency Computation
+## 📊 Part. 3 Frequency Computation
 
 ### 🧠 Context
 
@@ -259,14 +259,14 @@ Using your dataset containing **individual IDs**, **ethnicity or population orig
 | EastAfrica  | 0.50     | 1.00     | 0.25   | 0.00   | 0.25   | 0.00   | 0.25   | 0.50 |
 | Europe      | 0.00     | 0.50     | 0.50   | 0.00   | 0.25   | 0.00   | 0.00   | 0.00 |
 
-### 🧬 Supplementary Exercise: p.N264K
+## 🧬 Supplementary Exercise: p.N264K
 
 The **p.N264K** variant (**rs73885316**) is a **rare missense mutation** in the *APOL1* gene (Asparagine → Lysine at position 264).  
 Unlike the well-known **G1** and **G2** risk alleles, **p.N264K** is not itself associated with kidney disease risk — rather, it appears to act as a **protective modifier**.
 
 ---
 
-#### 🔍 Context
+### 🔍 Context
 
 - The **p.N264K** variant occurs in the **SRA-interacting domain** of APOL1, which is crucial for the protein’s trypanolytic activity.  
 - Functional studies suggest that **p.N264K** can **reduce APOL1-mediated cytotoxicity** without fully compromising trypanosome resistance.  
@@ -279,7 +279,7 @@ Unlike the well-known **G1** and **G2** risk alleles, **p.N264K** is not itself 
 
 ---
 
-#### 🌍 Population Distribution
+### 🌍 Population Distribution
 
 - **p.N264K** is observed **almost exclusively in African ancestry populations**.  
 - The **highest frequencies** have been reported in **West and Central African populations**, though still typically **below 5%**.  
@@ -288,7 +288,7 @@ Unlike the well-known **G1** and **G2** risk alleles, **p.N264K** is not itself 
 
 ---
 
-#### 🧠 Exercise
+### 🧠 Exercise
 
 Using your dataset that includes **p.N264K genotypes** (rs73885316) and **APOL1 G1/G2 status**:
 
@@ -296,6 +296,5 @@ Using your dataset that includes **p.N264K genotypes** (rs73885316) and **APOL1 
 2. **Compute allele frequencies** of p.N264K by population or ancestry group.  
 3. **Interpret** the results in the context of:
    - Evolutionary history of APOL1 variants,  
-   - Geographic exposure to *Trypanosoma brucei*, and  
-   - The potential **protective role** of p.N264K in mitigating kidney disease risk among G2 carriers.
+   - The potential **protective role** of p.N264K in mitigating kidney disease risk among G2 / G1 carriers.
 

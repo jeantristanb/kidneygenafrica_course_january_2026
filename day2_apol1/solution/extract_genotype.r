@@ -13,7 +13,7 @@
 library(data.table)
 
 # Define input file path (update if necessary)
-vcf_file <- "../Data/chr22.apol1.vcf"
+vcf_file <- "../Data/chr22.apol1.vcf.gz"
 
 # Step 1. Read the VCF file ---------------------------------------------------
 # Skip the first 112 metadata lines (non-essential)
