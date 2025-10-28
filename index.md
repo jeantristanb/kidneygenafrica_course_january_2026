@@ -1,4 +1,1 @@
-# 🧬 Bioinformatics Exercises
-
-Welcome! Here you will find a set of exercises for our genomics practical.
-
+# kidneygenafrica_course_january_2026
