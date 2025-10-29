@@ -10,9 +10,4 @@ If you can read this paragraph after clicking, collapsible sections work in your
 - Bullet 1
 - Bullet 2
 
-```r
-x <- c("0|1","1|1")
-strsplit(x, "|", fixed = TRUE)
-```
-
 </details>
