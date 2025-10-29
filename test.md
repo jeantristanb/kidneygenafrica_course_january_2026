@@ -1,4 +1,7 @@
-# Minimal Collapsible Test (GitHub)
+---
+layout: page
+title: Minimal Collapsible Test
+---
 
 This file helps verify that collapsible sections render correctly on your GitHub setup.
 

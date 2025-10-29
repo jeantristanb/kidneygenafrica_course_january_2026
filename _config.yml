@@ -1,5 +1,11 @@
-title: KidneyGenAfrica Excercice
+title: KidneyGenAfrica Exercises
 author: Jean-Tristan Brandenburg
 email: jean-tristan.brandenburg@wits.ac.za
 github_username: jeantristanb
 theme: minima
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
