@@ -2,6 +2,9 @@
 
 ## 🌍 General Context
 
+<details>
+  <summary>Click to show General Context</summary>
+
 The **APOL1 (Apolipoprotein L1)** gene, located on **chromosome 22 (22q12.3)**, encodes a protein involved in **innate immunity** and **protection against Trypanosoma parasites** that cause *African sleeping sickness*.  
 
 However, two common coding variants — known as the **G1** and **G2** **risk alleles** — have been **strongly associated with increased susceptibility to kidney diseases**, particularly in individuals of **African ancestry**.  
@@ -58,6 +61,8 @@ A third **APOL1 variant of emerging interest**, **p.N264K (`rs73885316`)**, is l
 ✅ **Key Takeaway:**  
 The **APOL1 gene** exemplifies how **evolutionary pressures from infectious disease** (trypanosome exposure) can shape **genetic diversity** and influence **modern disease susceptibility**, especially in **African populations**.
 
+
+</details>
 ## Exercise : general description
 
 Your collaborator, Prof. Nephro Log, has sequenced a dataset including individuals from different continents and ethnic backgrounds using whole-genome sequencing. The goal is to estimate the prevalence of APOL1 high-risk variants and the p.N264K variant. However, your collaborator does not have the necessary skills to analyze the dataset.
