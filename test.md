@@ -4,7 +4,7 @@ title: Minimal Collapsible Test
 ---
 
 This file helps verify that collapsible sections render correctly on your GitHub setup.
-
+update
 <details>
   <summary>Should expand when clicked</summary>
 
