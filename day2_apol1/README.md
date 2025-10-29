@@ -37,7 +37,9 @@ The frequency of **APOL1 high-risk alleles** varies markedly across populations,
 ---
 
 ### 🧪 The p.N264K Protective Variant
-# rs73885316 (chr22:36265628 C > A, p.N264K, gnomAD AFR allele frequency = 0.03)
+```text 
+rs73885316 (chr22:36265628 C > A, p.N264K, gnomAD AFR allele frequency = 0.03)
+```
 
 A third **APOL1 variant of emerging interest**, **p.N264K (`rs73885316`)**, is located in the **SRA-interacting domain** of the protein.
 
@@ -413,7 +415,7 @@ Unlike the well-known **G1** and **G2** risk alleles, **p.N264K** is not itself 
 
 ---
 
-### 🧠 Exercise
+### 🧠 Application
 
 Using your dataset that includes **p.N264K genotypes** (rs73885316) and **APOL1 G1/G2 status**:
 
