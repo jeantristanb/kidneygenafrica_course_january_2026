@@ -5,3 +5,4 @@ github_username: jeantristanb
 markdown: kramdown
 kramdown:
   input: GFM
+theme: minima
