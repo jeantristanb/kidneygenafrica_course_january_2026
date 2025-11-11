@@ -176,12 +176,15 @@ allegfr$Sc<-egfr_to_creatinine(allegfr$egfr, allegfr$age,allegfr$Sex)
 african_1<-sample(allegfr$IID[allegfr$Superpopulation=='AFR'],2)
 european_1<-sample(allegfr$IID[allegfr$Superpopulation=='EUR'],2)
 allegfr$IID_original<-allegfr$IID
-allegfr$IID[allegfr$IID %in% african_1] <- european_1
+allegfr$IID[allegfr$IID_original %in% african_1] <- european_1
+allegfr$IID[allegfr$IID_original %in% european_1] <- african_1
 
 SexTmp<-allegfr$Sex
 allegfr$Sex<-'Men'
 allegfr$Sex[SexTmp==2]<-'Women'
 
-write.csv(allegfr[,c('FID','IID','Sex','Superpopulation','age','Sc','egfr')], file=paste('../Data/',headout,'_pheno.csv',sep=''),row.names=F)
-write.csv(allegfr, file=paste(headout,'_pheno.csv',sep=''),row.names=F)
+write.csv(allegfr[,c('FID','IID','Sex','Superpopulation','age','Sc','egfr')], file=paste('../Data/',headout,'_pheno.csv',sep=''),row.names=F, quote=F)
+write.csv(allegfr, file=paste(headout,'_pheno.csv',sep=''),row.names=F, quote=F)
+write.table(allegfr[,c('FID','IID','Sex','Superpopulation','age','Sc','egfr')], file=paste('../Data/',headout,'_pheno.tsv',sep=''),row.names=F,quote=F)
+
 
