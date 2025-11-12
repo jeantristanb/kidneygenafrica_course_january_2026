@@ -28,6 +28,7 @@ The main steps include defining the sample, genotyping, performing rigorous qual
 ### 3. Quality Control (QC) of Genotypes
 - Remove poorly genotyped SNPs or samples.  
 - Identify potential genotyping errors or batch effects.
+- verify relatedness using genetics data
 
 ### 4. QC for Population Structure (Admixture)
 - Assess genetic ancestry using PCA or ADMIXTURE.  
@@ -36,7 +37,6 @@ The main steps include defining the sample, genotyping, performing rigorous qual
 
 ### 5. QC of Phenotypes
 - Check for outliers, missing data, and phenotype consistency.  
-- Verify sex and relatedness using genetic data.
 
 ### 6. Imputation
 - Infer untyped variants using a reference panel (e.g., 1000 Genomes, H3Africa, TOPMed).  
@@ -55,10 +55,98 @@ The main steps include defining the sample, genotyping, performing rigorous qual
 
 ![diagram of steps of assocation studies](images/association_diagram.jpg)
 
-## Objective of GWAS excercice
-Your collaborators Nephro Logist, had performed a studies to understandi common variant that increase kidney diseases using eGFR as markers. Nephro  sent you raw genotype data with phenotypes and told you it is feeling that some phenotype individual value look not correct. Furthermore, look some individuals had been switch during process between genotyoe and process. 
- 
-Objective of excercice is to quality control of phenotype, genotype, performed gwas, and extract signifc annt postiions and plot results.
+## Objective of the GWAS Exercise
+
+Your collaborator Pr. Nephro Logist has conducted a study to identify **common genetic variants** associated with kidney function, using **eGFR** (estimated glomerular filtration rate) as a quantitative marker.  
+They have sent you **raw genotype data** (in PLINK format) along with **phenotype information**. However, they suspect that:
+- Some phenotype values may be incorrect.
+- Some individuals may have been **mismatched** between genotype and phenotype data during processing.
+
+---
+
+## 🎯 Objective of the Exercise
+
+The goal of this exercise is to:
+1. Perform **quality control (QC)** on both phenotype and genotype data.  
+2. Conduct a **Genome-Wide Association Study (GWAS)** for eGFR.  
+3. Identify and extract **significant SNPs**.  
+4. Generate **summary plots** (Manhattan, QQ, and regional association plots).
+
+---
+
+## 🧭 Steps overv ies
+
+### **Part 0 — Understanding Your Data and Software**
+* [`Data_beforeqc`](Data_beforeqc/README.md): dataset sent by your collaborators, containing genotype (PLINK format) and phenotype data.  
+* [Description of software](softwares_description.md): overview of software used — `plink`, `plink2`, `R`, `admixture`, etc.
+
+---
+
+### **Part 1 — Genotyping Quality Control**
+Genotype QC is a fundamental step before imputation or association analysis.  
+The goal is to minimize **false positives** and **false negatives** by ensuring data integrity.
+
+See: [Quality control](qc_steps1.md)
+
+**Typical steps:**
+- Remove samples and variants with high missingness.  
+- Filter by minor allele frequency (MAF) and Hardy–Weinberg equilibrium (HWE).  
+- Detect and remove duplicate samples or related individuals (using `PI_HAT`).  
+- Verify **sex concordance** (genetic vs reported sex).  
+- Identify **heterozygosity** and **missingness** outliers.
+
+---
+
+### **Part 2 — Population Quality Control**
+Population structure (admixture) can bias association results and create spurious signals.  
+The aim here is to detect outliers or sample swaps.
+
+See: [Population genetics quality control](qc_steps2.md)
+
+**Typical steps:**
+- Perform **Principal Component Analysis (PCA)** to visualize population structure.  
+- Run **ADMIXTURE** to estimate ancestry proportions.  
+- Identify and handle population outliers.  
+- Use top PCs as covariates in association testing.
+
+---
+
+### **Part 3 — Phenotype Quality Control**
+Phenotype data must be cleaned, verified, and adjusted for covariates and outliers.
+
+See: [Phenotype quality control](qc_steps3.md)
+
+**Typical steps:**
+- Check units and plausible ranges (e.g., serum creatinine in mg/dL or µmol/L, eGFR in mL/min/1.73 m²).  
+- Detect and handle outliers (visual or statistical).  
+- Define relevant **covariates**: age, sex, site, ancestry PCs, etc.
+
+---
+
+### **Part 4 — Association Analysis**
+This is the main GWAS step, where you test for associations between genotypes and eGFR.
+
+See: [Association](association.md)
+
+**Key points:**
+- Use **linear regression** for quantitative traits (e.g., eGFR).  
+- Transform eGFR if not normally distributed (log or inverse-normal).  
+- Include appropriate covariates (age, sex, PCs, site, etc.).  
+- Use `plink2` or other GWAS tools for larger datasets or related samples.
+
+---
+
+### **Part 5 — Post-Association Analysis**
+Identify independent significant loci, annotate top SNPs, and visualize your results.
+
+See: [Post Association](post_association.md)
+
+**Typical steps:**
+- Perform **clumping** to define independent sentinel SNPs.  
+- Annotate top variants (gene name, position, effect allele, etc.).  
+- Create **Manhattan** and **QQ** plots.  
+- Generate **regional association plots** for significant loci.  
+
 
 
 
