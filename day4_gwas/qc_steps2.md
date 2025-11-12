@@ -19,12 +19,18 @@ we are using  data from [previous excercice](qc_steps1.md), but you can use a fi
 
 
 ---
+## Step 0 — Prepared data
+
+for the excercice we will first select independant SNPs, 
+```bash
+mkdir -p admixture
+../bin/plink --bfile 2_Data_qc_genotype/afreur_qc_rel --indep-pairwise 50 10 0.1 -out admixture/afreur_pihat
+../bin/plink --bfile 2_Data_qc_genotype/afreur_qc_rel --extract admixture/afreur_pihat.prune.in --make-bed --out admixture//afreur_pihat_indep
+```
 
 ## Step 1 — Principal Component Analysis (PCA)
 
 PCA helps visualize genetic similarity between individuals and detect potential population stratification or mislabeled samples.
-
-### Example Command (PLINK2)
 
 ### Key Arguments
 * `--bfile` : Input binary PLINK fileset.  
@@ -46,7 +52,7 @@ It helps detect admixture, population substructure, or sample contamination.
 
 ### Example Command
 ```bash
-admixture Data_qc_genotype/afreur_qc_rel.bed --cv  3
+admixture admixture//afreur_pihat_indep.bed --cv  3
 ```
 _(where `3` is the number of ancestral populations to estimate)_
 

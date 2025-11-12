@@ -1,7 +1,7 @@
 library(ggplot2)
 library(plyr)
 # to performed quality control
-datapheno<-read.table('pheno_qcadm.tsv',header=T)
+datapheno<-read.table('../3_Data_qc_admixture/afreur_pheno_qc.tsv',header=T)
 # identification of weird value 
 
 # value less than 10 and more than 150 can be considered as outlier
@@ -19,6 +19,6 @@ datapheno2<-datapheno[datapheno$egfr>= 10 & datapheno$egfr<=150,]
 summary(glm(egfr~age+Superpopulation+Sex, data=datapheno2))
 datapheno2$Sex2<-as.integer(as.factor(datapheno2$Sex))
 
-write.table(datapheno2, file='../Data_qc/qc_pheno.tsv', row.names=F ,col.names=T, quote=F)
-system("../../bin/plink -bfile genotyped_qc/afreur_pihat --make-bed -keep ../Data_qc/qc_pheno.tsv -out ../Data_qc/genotyped_qc")
+write.table(datapheno2, file='../4_Data_qc_admixte_pheno/qc_pheno.tsv', row.names=F ,col.names=T, quote=F)
+system("../../bin/plink -bfile ../3_Data_qc_admixture/afreur_qc_rel_adm --make-bed -keep ../4_Data_qc_admixte_pheno/qc_pheno.tsv -out ../4_Data_qc_admixte_pheno/genotyped_qc")
 

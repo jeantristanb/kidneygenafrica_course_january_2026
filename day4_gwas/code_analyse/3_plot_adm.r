@@ -6,11 +6,12 @@ datacv<-fread(text=system('grep CV admixture/*.out', intern=T))
 # K = 2 
 plot(1:5, datacv$V4, type='b')
 # 
-datafam<-read.table('admixture/afreur_pihat_indep.fam') 
-dataadm<-read.table('admixture/afreur_pihat_indep.2.Q')
+datafam<-read.table('../admixture/afreur_pihat_indep.fam') 
+dataadm<-read.table('../admixture/afreur_pihat_indep.2.Q')
 
 # phenotype
-datapheno<-read.table('../Data/afreur_pheno.tsv',header=T)
+#../1_Data_beforeqc/afreur_pheno.tsv
+datapheno<-read.table('../2_Data_qc_genotype/afreur_pheno.tsv',header=T)
 
 dataadm<-cbind(datafam[,c(1,2)], dataadm);names(dataadm)<-c('FID','IID','Adm.1','Adm.2')
 
@@ -48,7 +49,8 @@ ggsave('eigenval_plot.pdf')
 ggplot(allpheno_pcs,aes(x=Pcs_1,y=Pcs_2, col=Superpopulation))+geom_point()
 ggsave('pcs12_plot.pdf')
 
-write.table(allpheno_pcs[!(allpheno_pcs$with_admixture),!(names(allpheno_pcs) %in% 'with_admixture')], file='pheno_qcadm.tsv' ,row.names=F,col.name=T, sep='\t',quote=F)
+write.table(allpheno_pcs[!(allpheno_pcs$with_admixture),!(names(allpheno_pcs) %in% 'with_admixture')], file='../3_Data_qc_admixture/afreur_pheno_qc.tsv' ,row.names=F,col.name=T, sep='\t',quote=F)
+system('../../bin/plink -bfile ../2_Data_qc_genotype/afreur_qc_rel --keep ../3_Data_qc_admixture/afreur_pheno_qc.tsv --make-bed -out ../3_Data_qc_admixture/afreur_qc_rel_adm')
 
 
 
