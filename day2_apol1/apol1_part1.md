@@ -8,45 +8,43 @@ see [description here](info/vcf_description.nd)
 
 ### Variants
 
-[**APOL1**](https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100342;r=22:36253071-36267530)  
-
-is a gene located on **chromosome 22: 36,253,071–36,267,530 (GRCh38/hg38)**.  
+[**APOL1**](https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100342;r=22:36253071-36267530)   is a gene located on **chromosome 22: 36,253,071–36,267,530 (GRCh38/hg38)**.  
 It encodes Apolipoprotein L1, involved in innate immunity and parasitic resistance.  
 Certain variants in this gene—known as **G1** and **G2**—are associated with increased kidney disease risk in individuals of recent African ancestry.
 
 | rsID         | Chr | Position (hg38) | REF → ALT        | Amino Acid Change            | Functional Role         | Description |
 |--------------|-----|----------------|------------------|------------------------------|--------------------------|-------------|
-| **rs73885319** | 22  | 36,265,860     | A → G            | p.S342G (Ser → Gly)          | **G1** variant           | One of two missense mutations defining the G1 haplotype. :contentReference[oaicite:0]{index=0} |
-| **rs60910145** | 22  | 36,265,988     | T → G            | p.I384M (Ile → Met)          | **G1** variant           | Occurs in strong LD with rs73885319; together define G1. :contentReference[oaicite:1]{index=1} |
-| **rs71785313** | 22  | 36,265,995     | AATAATT→ A (6 bp del) | p.N388_Y389del            | **G2** variant           | In-frame 6 bp deletion removing two amino acids; defines G2. :contentReference[oaicite:2]{index=2} |
-| **rs73885316** | 22  | 36,265,628     | C → A            | p.N264K (Asn → Lys)          | **Modifier / Protective**| Rare variant; may attenuate APOL1 risk when co-inherited. :contentReference[oaicite:3]{index=3} |
+| **rs73885319** | 22  | 36,265,860     | A → G            | p.S342G (Ser → Gly)          | **G1** variant           | One of two missense mutations defining the G1 haplotype. |
+| **rs60910145** | 22  | 36,265,988     | T → G            | p.I384M (Ile → Met)          | **G1** variant           | Occurs in strong LD with rs73885319; together define G1. |
+| **rs71785313** | 22  | 36,265,995     | AATAATT→ A (6 bp del) | p.N388_Y389del            | **G2** variant           | In-frame 6 bp deletion removing two amino acids; defines G2. |
+| **rs73885316** | 22  | 36,265,628     | C → A            | p.N264K (Asn → Lys)          | **Modifier / Protective**| Rare variant; may attenuate APOL1 risk when co-inherited. |
 | —             | —   | —              | —                | —                            | **G0 (Reference)**       | Reference haplotype: neither G1 nor G2 present; low-risk. |
 
 #### 🧠 Notes
-- **G1** is defined by the *combined presence* of rs73885319 (A→G) and rs60910145 (T→G) on the same haplotype. :contentReference[oaicite:4]{index=4}  
-- **G2** is an *in-frame deletion* (rs71785313: AATAATT→ A) removing residues N388 and Y389. :contentReference[oaicite:5]{index=5}  
+- **G1** is defined by the *combined presence* of rs73885319 (A→G) and rs60910145 (T→G) on the same haplotype.
+- **G2** is an *in-frame deletion* (rs71785313: AATAATT→ A) removing residues N388 and Y389. 
 - Individuals carrying **two risk alleles** (G1/G1, G2/G2, or G1/G2) are classified as **high-risk** under a recessive model.  
 - The **p.N264K (rs73885316)** variant is a *potential protective modifier*, observed in low frequency in African ancestry populations.  
 - Coordinates correspond to the **GRCh38 (hg38)** reference genome.
 
 ---
 
-### 🧬 Application : Extract APOL1 Risk Alleles (Including p.N264K) from a VCF File
+## 🧬 Application : Extract APOL1 Risk Alleles (Including p.N264K) from a VCF File
 
-#### 🧠 Objective
+### 🧠 Objective
 
 From a collaborator’s VCF file, extract the **genomic positions** and **individual genotypes** for the **APOL1 risk variants**, including **p.N264K (rs73885319)**.
 
 ---
 
-#### 📂 Files
+### 📂 Files
 
 The file `Data/chr22.apol1.vcf` contains approximately **3,000 samples** with variants located around the **APOL1 gene**.  
 All genotypes in this file are **phased**, meaning that alleles are represented as `0|1`, `1|0`, or `1|1`.
 
 ---
 
-#### 🧪 Steps
+### 🧪 Steps
 
 Using **R** (or any equivalent tool), extract from the provided VCF file:
 
@@ -63,15 +61,8 @@ R is not mandatory. You can use other tools (e.g., `bcftools`, `awk`, or `plink`
 
 ---
 
-### 💡 Clue
 
-Using **R** is one of the easiest ways to handle data programmatically.  
-However, it can be limited when dealing with **very large datasets** or **complex string manipulations**.  
-For this exercise, R provides convenient tools to complete the task effectively.
-
----
-
-#### 📘 Reading Data
+### 📘 Reading Data
 
 - For large files (including compressed `.gz` files), use the `fread()` function from the **data.table** package.  
   Install the required libraries:
@@ -110,7 +101,7 @@ For this exercise, R provides convenient tools to complete the task effectively.
 
 ---
 
-💬 *Tip:* Combining `data.table::fread()` and `strsplit()` makes R powerful for extracting and manipulating genotype data efficiently.
+
 
 ---
 

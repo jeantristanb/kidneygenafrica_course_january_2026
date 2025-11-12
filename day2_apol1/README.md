@@ -31,7 +31,7 @@ The frequency of **APOL1 high-risk alleles** varies markedly across populations,
 - **Rare or absent** in **non-African populations** (Europeans, Asians, Indigenous Americans).  
 - Within Africa, distribution is **heterogeneous**:  
   - **Higher** in **West and Central Africa** (e.g., *Yoruba, Igbo*).  
-  - **Lower** in **East and Southern Africa**, mirroring the geographic spread of *T. brucei gambiense* and *T. b. rhodesiense*.  
+  - **Lower** in non bantu **East Africa** and **G2** is higher in **Bantu East African** and Southern Africa, mirroring the geographic spread of *T. brucei gambiense* and *T. b. rhodesiense*.  
 
 🧩 This variability highlights **balancing selection** — risk alleles were **maintained** in populations where they **conferred resistance to trypanosome infection**, despite their **negative effect on kidney function**.
 
