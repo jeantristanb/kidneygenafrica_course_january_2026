@@ -121,6 +121,7 @@ These packages provide genome references, SNP databases, and summary statistics 
 * plink 1.9 – classical GWAS and QC pipeline
 * plink 2 – next-generation GWAS framework
 * admixture – ancestry estimation and population structure inference
+* regenie – ancestry estimation and population structure inference
 
 ---
 

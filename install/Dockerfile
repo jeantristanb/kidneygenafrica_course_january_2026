@@ -43,24 +43,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxml2-dev \
  && rm -rf /var/lib/apt/lists/*
 
-RUN  apt-get update && apt-get install -y libxml2-dev libfribidi-dev libssl-dev libharfbuzz-dev
+RUN  apt-get update && apt-get install -y libxml2-dev libfribidi-dev libssl-dev libharfbuzz-dev libgomp1 default-libmysqlclient-dev
 # =========================
 # R packages (CRAN + Bioconductor + GitHub)
 # =========================
-RUN R -e "for (l in  c('devtools', 'R.utils', 'data.table', 'ggplot2', 'qqman', 'dplyr', 'plyr', 'BiocManager','httr','AnnotationDbi')) \
+RUN R -e "for (l in  c('devtools', 'R.utils', 'data.table', 'ggplot2', 'qqman', 'dplyr', 'plyr', 'BiocManager','httr')){ \
     install.packages(l, dependencies=TRUE, repos='https://cran.rstudio.com/');\
     if ( ! library(l, character.only=TRUE, logical.return=TRUE) ) {\
         quit(status=1, save='no')\
     }}\
   "
-RUN R -e "BiocManager::install( \
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18');BiocManager::install( \
     c('MungeSumstats', \
       'SNPlocs.Hsapiens.dbSNP155.GRCh38', \
       'BSgenome.Hsapiens.NCBI.GRCh38', \
       'SNPlocs.Hsapiens.dbSNP155.GRCh37', \
-      'BSgenome.Hsapiens.1000genomes.hs37d5','biomaRt') \
-  )" \
- && R -e "devtools::install_github('jeantristanb/locusplotr', ref = 'test')"
+      'BSgenome.Hsapiens.1000genomes.hs37d5','biomaRt','AnnotationDbi') \
+  )" 
+RUN R -e "devtools::install_github('jeantristanb/locusplotr', ref = 'test')"
 
 # =========================
 # Install PLINK 1.9
@@ -88,6 +88,19 @@ RUN mkdir -p admixture && cd admixture \
  && tar -xzf admixture_linux-1.3.0.tar.gz \
  && mv dist/admixture_linux-1.3.0/admixture $dirbin \
  && cd ../ && rm -rf admixture
+
+RUN wget  https://github.com/rgcgithub/regenie/releases/download/v4.1/regenie_v4.1.gz_x86_64_Linux.zip && \
+    unzip regenie_v4.1.gz_x86_64_Linux.zip && \
+    chmod +x regenie_v4.1.gz_x86_64_Linux && \
+    mv regenie_v4.1.gz_x86_64_Linux /usr/local/bin/regenie
+
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18');BiocManager::install( \
+    c('MungeSumstats', \
+      'SNPlocs.Hsapiens.dbSNP155.GRCh38', \
+      'BSgenome.Hsapiens.NCBI.GRCh38', \
+      'SNPlocs.Hsapiens.dbSNP155.GRCh37', \
+      'BSgenome.Hsapiens.1000genomes.hs37d5','biomaRt','AnnotationDbi') \
+  )"  
 
 # =========================
 # Default shell
