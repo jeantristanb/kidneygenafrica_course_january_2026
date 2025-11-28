@@ -94,7 +94,7 @@ RUN wget  https://github.com/rgcgithub/regenie/releases/download/v4.1/regenie_v4
     chmod +x regenie_v4.1.gz_x86_64_Linux && \
     mv regenie_v4.1.gz_x86_64_Linux /usr/local/bin/regenie
 
-RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18');BiocManager::install( \
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18'); options(timeout = 10000);BiocManager::install( \
     c('MungeSumstats', \
       'SNPlocs.Hsapiens.dbSNP155.GRCh38', \
       'BSgenome.Hsapiens.NCBI.GRCh38', \
