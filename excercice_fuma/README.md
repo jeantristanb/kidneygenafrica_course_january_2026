@@ -64,9 +64,9 @@ These platforms are **very user-friendly** and require minimal computational res
 - **FUMA** – functional mapping, annotation, and gene prioritization  
 
 
-## Exercise: Annotation Using FUMA
+##  Annotation Using FUMA
 
-### FUMA – Description
+### FUMA – General description
 
 Functional Mapping and Annotation of Genome-Wide Association Studies (FUMA) is a web-based platform used to annotate, prioritize, visualize, and interpret GWAS results.  
 FUMA is organized into three main modules:
@@ -86,43 +86,6 @@ Public results (including example jobs) can be explored via the “Browse Public
 FUMA is frequently updated and widely used by the GWAS community.
 
 - **Tutorial:** https://fuma.ctglab.nl/tutorial#magma
-
----
-
-### Dataset Description
-
-The dataset includes approximately **67,000 African American individuals** and represents one of the largest GWAS datasets available for individuals of African ancestry.  
-The data were generated from a **meta-analysis of eight cohorts** using the METAL software and have been uploaded to the FUMA platform.
-
-More information and data access:  
-https://susztaklab.com/GWAS2M/Download.php
-
-This dataset was developed to support the **Kidney Disease Genetic Scorecard**, a framework that integrates **32 different data types** to prioritize causal genetic variants and genes involved in kidney disease.
-
-Reference publication:  
-https://www.science.org/doi/10.1126/science.adp4753
-
----
-
-### FUMA Analysis and Parameters
-
-The analysis was performed using the **FUMA web interface**, running both the **SNP2GENE** and **GENE2FUNC** modules.
-
-Tutorial:  
-https://fuma.ctglab.nl/tutorial
-
-**Parameters used:**
-
-- **Reference genotype panel:** African populations from the 1000 Genomes Project  
-- **LD threshold:** r² > 0.6  
-- **Minor allele frequency (MAF):** > 0.01  
-- **eQTL mapping:** Enabled using most available eQTL databases  
-- **MAGMA analysis:** Performed for gene-based and downstream analyses
-
-# Analysis Results
-
-Click on the link below to explore the eGFR GWAS results from Liu et al. in FUMA:  
-https://fuma.ctglab.nl/browse/697303
 
 ---
 
@@ -279,14 +242,48 @@ Alternative tools for generating regional association plots include:
 - **LocusZoom v2**: http://locuszoom.org/  
 - R packages for regional association visualization (see `https://github.com/jeantristanb/kidneygenafrica_course_january_2026/blob/main/excercice_gwas/post_association.md`)
 
+
+---
+
 ## Exercise
 
-Using the FUMA web interface and the publicly available eGFR GWAS results described above:  
+### Dataset Description
+
+The dataset includes approximately **67,000 African American individuals** and represents one of the largest GWAS datasets available for individuals of African ancestry.
+The data were generated from a **meta-analysis of eight cohorts** using the METAL software and have been uploaded to the FUMA platform.
+
+More information and data access:
+https://susztaklab.com/GWAS2M/Download.php
+
+This dataset was developed to support the **Kidney Disease Genetic Scorecard**, a framework that integrates **32 different data types** to prioritize causal genetic variants and genes involved in kidney disease.
+
+Reference publication:
+https://www.science.org/doi/10.1126/science.adp4753
+
+---
+
+
+### FUMA and Parameters
+
+Tutorial:
+https://fuma.ctglab.nl/tutorial
+
+**Parameters used:**
+
+- **Reference genotype panel:** African populations from the 1000 Genomes Project
+- **LD threshold:** r² > 0.6
+- **Minor allele frequency (MAF):** > 0.01
+- **eQTL mapping:** Enabled using most available eQTL databases
+- **MAGMA analysis:** Performed for gene-based and downstream analyses
+
+
+Click on the link below to explore the eGFR GWAS results from Liu et al. in FUMA:
+
 https://fuma.ctglab.nl/browse/697303
 
 ---
 
-### Lead SNPs
+### Identification of lead SNPs
 
 - Identify lead SNPs and genomic risk loci using a genome-wide significance threshold of **5 × 10⁻⁸**.
 - How many putative genomic risk loci are identified?
@@ -295,7 +292,7 @@ https://fuma.ctglab.nl/browse/697303
 
 ---
 
-### Annotation
+### Annotation of lead SNPs
 
 - Which SNPs and genomic regions have been previously reported in GWAS?
   - Can you assess the novelty of each locus using previous association ?
