@@ -53,13 +53,6 @@ RUN R -e "for (l in  c('devtools', 'R.utils', 'data.table', 'ggplot2', 'qqman', 
         quit(status=1, save='no')\
     }}\
   "
-RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18');BiocManager::install( \
-    c('MungeSumstats', \
-      'SNPlocs.Hsapiens.dbSNP155.GRCh38', \
-      'BSgenome.Hsapiens.NCBI.GRCh38', \
-      'SNPlocs.Hsapiens.dbSNP155.GRCh37', \
-      'BSgenome.Hsapiens.1000genomes.hs37d5','biomaRt','AnnotationDbi') \
-  )" 
 RUN R -e "devtools::install_github('jeantristanb/locusplotr', ref = 'test')"
 
 # =========================
@@ -94,13 +87,12 @@ RUN wget  https://github.com/rgcgithub/regenie/releases/download/v4.1/regenie_v4
     chmod +x regenie_v4.1.gz_x86_64_Linux && \
     mv regenie_v4.1.gz_x86_64_Linux /usr/local/bin/regenie
 
-RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18'); options(timeout = 10000);BiocManager::install( \
-    c('MungeSumstats', \
-      'SNPlocs.Hsapiens.dbSNP155.GRCh38', \
-      'BSgenome.Hsapiens.NCBI.GRCh38', \
-      'SNPlocs.Hsapiens.dbSNP155.GRCh37', \
-      'BSgenome.Hsapiens.1000genomes.hs37d5','biomaRt','AnnotationDbi') \
-  )"  
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18'); options(timeout = 10000);BiocManager::install( c('MungeSumstats'))"
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18'); options(timeout = 10000);BiocManager::install(c('SNPlocs.Hsapiens.dbSNP155.GRCh38'))" 
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18'); options(timeout = 10000);BiocManager::install( 'BSgenome.Hsapiens.NCBI.GRCh38')"
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18'); options(timeout = 10000);BiocManager::install( 'BSgenome.Hsapiens.NCBI.GRCh38')"
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18'); options(timeout = 10000);BiocManager::install( 'SNPlocs.Hsapiens.dbSNP155.GRCh37')" 
+RUN R -e "options(repos = BiocManager::repositories());BiocManager::install(version = '3.18'); options(timeout = 10000);BiocManager::install( 'BSgenome.Hsapiens.1000genomes.hs37d5')"
 
 # =========================
 # Default shell

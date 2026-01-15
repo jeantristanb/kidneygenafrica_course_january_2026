@@ -1,6 +1,3 @@
-# Training exercise for GWAS
-
-## GWAS context
 # 🧬 Training Exercise for GWAS
 
 ## GWAS Context
