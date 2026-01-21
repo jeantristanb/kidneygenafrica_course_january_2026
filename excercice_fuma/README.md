@@ -1,5 +1,5 @@
 # Training Exercise: Post-GWAS Analysis
-
+see [pdf version](fuma_excercice.pdf)
 ## Post-GWAS Analysis – Context
 
 Post-GWAS analysis refers to the set of analyses performed **after a genome-wide association study (GWAS)** to interpret and translate GWAS signals into biological insights.
