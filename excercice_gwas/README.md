@@ -71,15 +71,15 @@ The goal of this exercise is to:
 
 ---
 
-## 🧭 Steps overv ies
+## 🧭 Steps overvies
 
 ### **Part 0 — Understanding Your Data and Software**
 * [`Data_beforeqc`](Data_beforeqc/README.md): dataset sent by your collaborators, containing genotype (PLINK format) and phenotype data.  
-* [Description of software](softwares_description.md): overview of software used — `plink`, `plink2`, `R`, `admixture`, etc.
 
 ---
 
 ### **Part 1 — Genotyping Quality Control**
+see [pdf version](1_qc_part_1.pdf)
 Genotype QC is a fundamental step before imputation or association analysis.  
 The goal is to minimize **false positives** and **false negatives** by ensuring data integrity.
 
@@ -95,11 +95,11 @@ See: [Quality control](qc_steps1.md)
 ---
 
 ### **Part 2 — Population Quality Control**
+see [pdf version](2_qc_part_2.pdf)
 Population structure (admixture) can bias association results and create spurious signals.  
 The aim here is to detect outliers or sample swaps.
 
 See: [Population genetics quality control](qc_steps2.md)
-
 **Typical steps:**
 - Perform **Principal Component Analysis (PCA)** to visualize population structure.  
 - Run **ADMIXTURE** to estimate ancestry proportions.  
@@ -109,6 +109,7 @@ See: [Population genetics quality control](qc_steps2.md)
 ---
 
 ### **Part 3 — Phenotype Quality Control**
+see [pdf version](3_qc_part_3.pdf)
 Phenotype data must be cleaned, verified, and adjusted for covariates and outliers.
 
 See: [Phenotype quality control](qc_steps3.md)
@@ -121,6 +122,7 @@ See: [Phenotype quality control](qc_steps3.md)
 ---
 
 ### **Part 4 — Association Analysis**
+see [pdf version](4_association.pdf)
 This is the main GWAS step, where you test for associations between genotypes and eGFR.
 
 See: [Association](association.md)
@@ -134,6 +136,7 @@ See: [Association](association.md)
 ---
 
 ### **Part 5 — Post-Association Analysis**
+see [pdf version](5_post_association.pdf)
 Identify independent significant loci, annotate top SNPs, and visualize your results.
 
 See: [Post Association](post_association.md)
